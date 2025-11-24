@@ -1,0 +1,15 @@
+<h1>New Game</h1>
+
+<p>Here are your letters:</p>
+<p><%= @letters.join(" ") %></p>
+
+<form action="<%= score_path %>" data-turbo="false" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <%= hidden_field_tag :letters, @letters.join %>
+
+  <label for="word">Your word:</label>
+  <input type="text" id="word" name="word">
+
+  <input type="submit" value="Play!">
+</form>
